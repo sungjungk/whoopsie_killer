@@ -11,7 +11,6 @@ When something crashes, whoopsie does two things: collects the crash report gene
 ## Basic operation
 When a program has been crashed, Linux system tries to create a '.crash' file on '/var/crash/' directory with python script located in '/usr/share/apport/apport'.
 The file contains a series of system crash information including core dump, syslog, stack trace, memory map info, etc.
-A user is given read and write permission to the file.
 After then, whoopsie parses key-value pairs in ‘.crash’ file and encodes it into binary json (bson) format.
 Lastly, whoopsie forwards the data to a remotely connected Ubuntu error report system.
 
@@ -26,7 +25,7 @@ If a crash file contains same repetitive key-value pairs, it leads to memory lea
 * [1] https://developer.gnome.org/glib/stable/glib-Hash-Tables.html#g-hash-table-insert
 
 # Attack
-1) Generates a certain malformed crash file that contains same repetitive key-value pairs.  
+1) Generate a certain malformed crash file that contains same repetitive key-value pairs.  
 2) Trigger the whoopsie to read the generated crash file.  
 3) After then, the whoopsie process has been killed.  
 
