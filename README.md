@@ -1,7 +1,6 @@
 # Vulnerability in whoopsie (previously "reporterd")
-The parse_report function in whoopsie.c allows attackers to cause a denial of service (memory leak) via a crafted file.
-Exploitation of this issue causes excessive memory consumption which results in the Linux kernel triggerring OOM killer on arbitrary procces.
-This results in the process being terminated by the OOM killer.
+The parse_report function in whoopsie.c allows attackers to cause a denial of service (memory leak) via a crafted file. Exploitation of this issue causes excessive memory consumption which results in the Linux kernel triggering OOM killer on arbitrary process. This results in the process being terminated by the OOM killer.
+
 
 # Background 
 
