@@ -15,7 +15,7 @@ After then, whoopsie parses key-value pairs in ‘.crash’ file and encodes it 
 Lastly, whoopsie forwards the data to a remotely connected Ubuntu error report system.
 
 
-# Description
+# Vulnerability Description
 I have found a memory leak vulnerability during the parsing the crash file, when a collision occurs on GHashTable through g_hash_table_insert().
 According to [1], if the key already exists in the GHashTable, its current value is replaced with the new value.
 If 'key_destory_func' and 'value_destroy_func' are supplied when creating the table, the old value and the passed key are freed using that function.
@@ -26,8 +26,8 @@ If a crash file contains same repetitive key-value pairs, it leads to memory lea
 
 # Attack
 1) Generate a certain malformed crash file that contains same repetitive key-value pairs.  
-2) Trigger the whoopsie to read the generated crash file.  
-3) After then, the whoopsie process has been killed.  
+2) Trigger the whoopsie daemon to read the generated crash file. 
+3) After then, the attack results in the daemon being terminated by the OOM killer.
 
 # How to run
 You require the following modules to run whoopsie_killer.py:
