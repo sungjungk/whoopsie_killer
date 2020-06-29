@@ -31,7 +31,8 @@ If a crash file contains same repetitive key-value pairs, it leads to memory lea
 
 # How to run
 You require the following modules to run whoopsie_killer.py:
-* argparse
+* argparse  
+* psutil (for retrieving information on memory utilization)
 
 # Demo video
 * Let's check whoopsie_killer.poc
