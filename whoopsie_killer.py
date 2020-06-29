@@ -3,6 +3,7 @@
 import os,sys,math,time
 import argparse
 import select
+import psutil
 from pathlib import Path
 from systemd import journal
 
@@ -53,6 +54,10 @@ def progress_gen(message):
         sys.stdout.write("\033[K")
         yield
 
+def memory_usage(pname):
+    for proc in psutil.process_iter():
+        if proc.name() == pname:
+            return (proc.memory_percent())
 
 def journal_log():
     j = journal.Reader()
@@ -89,7 +94,6 @@ def journal_log():
         next(x)
 
 def main():
-
     try:
         Path('/var/crash/fake.crash').unlink()
         Path('/var/crash/fake.upload').unlink()
@@ -108,6 +112,7 @@ def main():
 
     cnt = 0
     while cnt < balance * 2:
+        print('whoopsie\'s memory usage: %f %%' %memory_usage('whoopsie'))
         cnt += 1
 
         # Start the process; parsing -> uploading -> ...
