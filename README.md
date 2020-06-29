@@ -37,4 +37,4 @@ You require the following modules to run whoopsie_killer.py:
 # Demo video
 * Let's check whoopsie_killer.poc
 
-[![Video Label](https://img.youtube.com/vi/hclEXMek8XY/0.jpg)](https://youtu.be/hclEXMek8XY?t=0s) 
+[![Video Label](https://img.youtube.com/vi/t8YtccOfGo8/0.jpg)](https://youtu.be/t8YtccOfGo8?t=0s) 
